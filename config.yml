@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  print-hello:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - checkout
+      - run: echo Hello
+      
+  print-world:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: echo World!
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - print-hello
+      - print-world:
+        requires:
+          print-hello

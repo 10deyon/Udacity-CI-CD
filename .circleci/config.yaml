@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  env-vars:
+    docker:
+      - image: circleci/node:13.8.0
+        environment:
+          MY_ENV_VAR_1: this is the first docker ENV var
+    steps:
+      - checkout
+      - run:
+        name: "print out the environment vars of my project"
+        command: |
+          echo $APP_NAME
+
+workflows:
+  say-hello-workflow:
+    jobs:
+      - env-vars
