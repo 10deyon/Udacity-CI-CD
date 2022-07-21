@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   env-vars:
     docker:
-      - image: circleci/node:13.8.0
+      - image: cimg/base:2020.01
         environment:
           MY_ENV_VAR_1: this is the first docker ENV var
     steps:
